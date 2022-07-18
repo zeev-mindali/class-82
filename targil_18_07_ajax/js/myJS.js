@@ -14,7 +14,7 @@ const showCarData = (data)=>{
     console.log(data)   ;
     const myData = data.result.records[0]; 
     //console.log(getCarString(myData));
-    $("#res").append(getCarString(myData));
+    $("#res").html(getCarString(myData));
 };
 
 const getCarString =(newData)=>{
