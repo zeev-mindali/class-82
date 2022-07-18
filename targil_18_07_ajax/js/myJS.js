@@ -10,13 +10,14 @@ $("#searchCar").click(()=>{
 });
 
 
-const showCarData = (data)=>{    
-    let myData = data.result.records[0]; 
-    console.log(getCarString(myData));
-
+const showCarData = (data)=>{ 
+    console.log(data)   ;
+    const myData = data.result.records[0]; 
+    //console.log(getCarString(myData));
+    $("#res").append(getCarString(myData));
 };
 
-const getCarString =(data)=>{
+const getCarString =(newData)=>{
     // create the data we want
     // let myString= `<div>${data.tozeret_nm}</div>`;
     // myString+=`<div>${data.kinuy_mishari}</div>`;
@@ -28,12 +29,12 @@ const getCarString =(data)=>{
     // return myString;
 
     let myString = `
-    <div>${data.tozeret_nm}</div>
-    <div>${data.kinuy_mishari}</div>
-    <div>${data.shnat_yitzur}</div>
-    <div>${data.tzeva_rechev}</div>
-    <div>${data.sug_delek_nm}</div>
-    <div>${convertDate(data.tokef_dt)}</div>
+    <div>${newData.tozeret_nm}</div>
+    <div>${newData.kinuy_mishari}</div>
+    <div>${newData.shnat_yitzur}</div>
+    <div>${newData.tzeva_rechev}</div>
+    <div>${newData.sug_delek_nm}</div>
+    <div>${convertDate(newData.tokef_dt)}</div>
     `
 
     return myString;
