@@ -28,8 +28,7 @@ const getData = (filterData)=>{
                 let population = 0;
                 data.map(item=>population+=item.population);
                 console.log("population:",population);
-                console.log("avg: "+parseInt(population/data.length));
-
+                console.log("avg: ",parseInt(population/data.length));
             }
         }
     });
