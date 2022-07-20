@@ -18,7 +18,19 @@ const getData = (filterData)=>{
         success: data=>{
             console.log(data);
             $("#totalC").html(`total Countries:${data.length}`);
-            
+            if (filterData!=undefined){
+                //giny 2012
+                //     for (let counter=0;counter<data.length;counter+=1){
+                //         console.log(data[counter].name.common);
+                //    }
+                //giny 2022
+                data.map(item=>item.name.common==undefined?"err":console.log(item.name.common));
+                let population = 0;
+                data.map(item=>population+=item.population);
+                console.log("population:",population);
+                console.log("avg: "+parseInt(population/data.length));
+
+            }
         }
     });
 }
