@@ -27,8 +27,14 @@ const getData = (filterData)=>{
                 data.map(item=>item.name.common==undefined?"err":console.log(item.name.common));
                 let population = 0;
                 data.map(item=>population+=item.population);
-                console.log("population:",population);
-                console.log("avg: ",parseInt(population/data.length));
+                $("#population").html(`Total population: ${population}`);
+                $("#averagePopulation").html(`average Population:${parseInt(population/data.length)}`);
+                //Americas, Asia, Europe, Africa, Australia
+                const totalAmericas = ()=>{
+                    return data.filter(item=>item.region==="Americas").length;
+                }
+                //data.map(item=>console.log(item.name.common));
+                console.log("total in america",totalAmericas());
             }
         }
     });
