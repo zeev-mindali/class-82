@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Layout/>
+    <Layout/> {/*-- we need to change to our component -->*/}c
   </React.StrictMode>
 );
 
