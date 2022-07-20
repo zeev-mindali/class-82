@@ -1,34 +1,33 @@
 const myURL = "https://restcountries.com/v3.1/all";
+const filterURL = "https://restcountries.com/v3.1/name/";
 var filterData;
 
-const getData = (filterData)=>{
-    //get data from server with rest
-    $.ajax({ 
-        url: myURL,
-        success : data=>{
-            if (filterData===undefined){
-                filterData = data;
-                 console.log(data);
-            }
-            filterData = data;
-            console.log(data);
-            totalCountries(data.length);
-        }
-    })
-};
-
+//invoke getData without any data (find all)
 $("#findAll").click(()=>{
     getData();
 })
 
-const totalCountries = (jsonTotal)=>{$("#totalC").html(`total countries: ${jsonTotal}`)};
+//invoke findFilter to find a country by partial name
+$("#findFilter").click(()=>{
+    getData($("#cName").val());
+});
 
+const getData = (filterData)=>{
+    $.ajax({
+        url : (filterData==undefined)?myURL:(filterURL+filterData),
+        success: data=>{
+            console.log(data);
+            $("#totalC").html(`total Countries:${data.length}`);
+            
+        }
+    });
+}
+
+const totalCountries = (jsonTotal)=>{$("#totalC").html(`total countries: ${jsonTotal}`)};
 
 const createTable = ()=>{};
 
-const findFilter = ()=>{
-    getData($("#cName").val());
-}
+
 
 
 // const matan = (name,age,height)=>{
