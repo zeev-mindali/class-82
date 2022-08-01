@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import MainLayout from './Components/Layout/MainLayout/MainLayout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Layout from './Components/main/Layout/Layout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Layout/> {/*-- we need to change to our component -->*/}c
+     <MainLayout/>
   </React.StrictMode>
 );
 

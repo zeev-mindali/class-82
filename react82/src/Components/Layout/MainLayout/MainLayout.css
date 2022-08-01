@@ -1,4 +1,4 @@
-.Layout {
+.MainLayout {
 	height: 100%;
     box-sizing: border-box; /* fix css size buf/feature.... */
     display: grid;
@@ -6,12 +6,13 @@
     grid-template-columns: repeat(6, 1fr); /* 1fr 1fr 1fr 1fr 1fr 1fr */
 }
 
-.Layout>header, .Layout>footer{
+
+.MainLayout>header, .MainLayout>footer{
     grid-column: span 6;
 }
-.Layout>main{
+.MainLayout>main{
     grid-column: span 5;
 }
-.Layout, .Layout>*{
+.MainLayout, .MainLayout>*{
     border: 1px solid black;
 }

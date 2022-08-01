@@ -3,7 +3,7 @@ import "./Footer.css";
 function Footer(): JSX.Element {
     return (
         <div className="Footer">
-			All right reseved to Zeevik Mother in Low &reg; 666
+			all right &reg; is reseved to zeev mother in law 666
         </div>
     );
 }
