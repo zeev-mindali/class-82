@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css";
 
 function Header(): JSX.Element {
@@ -8,12 +8,23 @@ function Header(): JSX.Element {
     //      var     fun          init
     const [myTime,setHeaderTime] = useState("");
     //let myTime = "";
-    setInterval(()=>{
-        //myTime = new Date().toLocaleTimeString();
-        setHeaderTime(new Date().toLocaleTimeString());
-    },1000);
+
+    //load once when component is mounted and do not create new interval
+    //when we render the component again
+    //useEffect()
+    //useEffect(()=>{},[])
+    useEffect(()=>{
+        setInterval(()=>{
+            //myTime = new Date().toLocaleTimeString();
+            setHeaderTime(new Date().toLocaleTimeString());
+            console.log("render");
+            },1000);
+    },[])
+   
+    
     return (
         <div className="Header">
+            
 			<h1>{myTime}</h1>
         </div>
     );
