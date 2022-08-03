@@ -1,6 +1,4 @@
 
-import { Typography, TextField, Button, ButtonGroup } from "@material-ui/core";
-import { AccountBox, CheckBox, ContactPhone } from "@material-ui/icons";
 
 import "./NewLogin.css";
 
