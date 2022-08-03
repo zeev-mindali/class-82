@@ -17,7 +17,7 @@ function Header(): JSX.Element {
         setInterval(()=>{
             //myTime = new Date().toLocaleTimeString();
             setHeaderTime(new Date().toLocaleTimeString());
-            console.log("render");
+            //console.log("render");
             },1000);
     },[])
    

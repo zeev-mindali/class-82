@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MainLayout from './Components/Layout/MainLayout/MainLayout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Layout from './Components/main/Layout/Layout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-/*
 root.render(
   <React.StrictMode>
-     <MainLayout/>
+    <Layout/> {/*-- we need to change to our component -->*/}c
   </React.StrictMode>
 );
-*/
-root.render(<MainLayout />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
