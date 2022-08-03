@@ -54,7 +54,8 @@ function Main(): JSX.Element {
             <div id="kartzya">
                 {/*<iframe width="560" height="315" src="https://www.youtube.com/embed/U8qUDoBt_Dg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>*/}
                 {/*doneTasks.map(item=><div className="Box" key={item.id}>{item.name}<br/>{item.isDone?"done":"וואי עלייך"}<br/>{item.owner}</div>)*/}
-                {tasks.map(item=><MyTask key={item.id} id={item.id} taskName={item.name} taskOwner={item.owner} isDone={item.isDone}/>)}
+                {tasks.map(item=><MyTask key={item.id} 
+                taskName={item.name} taskOwner={item.owner} id={item.id} isDone={item.isDone}/>)}
             </div>
             
         </div>

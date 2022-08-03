@@ -15,7 +15,7 @@ function Footer(): JSX.Element {
    
     return (
         <div className="Footer">
-			all right &reg; is reseved to {git}
+			all right &reg; is reseved to {madeBy}
         </div>
     );
 }

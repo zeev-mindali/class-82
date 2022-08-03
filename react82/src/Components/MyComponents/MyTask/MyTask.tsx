@@ -1,10 +1,11 @@
 import "./MyTask.css";
 
+//which data the component is expecting
 interface MyTaskProps {
-	id:number;
+	id?:number;
     taskName:string;
     taskOwner:string;
-    isDone?:boolean;
+    isDone?:boolean; //? - optional 
 }
 
 function MyTask(props: MyTaskProps): JSX.Element {
