@@ -1,4 +1,5 @@
 import Login from "../../MyComponents/Login/Login";
+import NewLogin from "../../MyComponents/NewLogin/NewLogin";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -10,7 +11,7 @@ function MainLayout(): JSX.Element {
         <div className="MainLayout">
 			<header><Header/></header>
             <aside><Menu/></aside>
-            <main><Login/></main>
+            <main><NewLogin/></main>
             <footer><Footer/></footer>
         </div>
     );

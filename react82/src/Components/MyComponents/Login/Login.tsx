@@ -27,11 +27,12 @@ function Login(): JSX.Element {
 
     return (
         <div className="Login Box" >
-			<h1>Login Form</h1><hr/>
+			<h1>Login Form</h1>
             <input type="text" placeholder="User name.." id="userName" onChange={changeUser} value={uName}/><br/><br/>
-            <input type="password" placeholder="Password..." id="password"/><br/><br/>
-            <div id="res">{uName}</div><br/><br/>
-            <input type="button" value="login" onClick={myButton}/>&nbsp;&nbsp;<input type="button" value="reset" onClick={resetMe}/>
+            <input type="password" placeholder="Password..." id="password"/><br/><br/>            
+            <input type="checkbox" id="rememberMe"/>rememeber me<br/><br/>
+            <input type="button" value="login" onClick={myButton}/><input type="button" value="reset" onClick={resetMe}/>
+            {/*<div id="res">{uName}</div><br/><br/>*/}
         </div>
     );
 }
