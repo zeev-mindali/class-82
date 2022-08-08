@@ -1,5 +1,7 @@
 import { Button, TextField, Typography } from "@mui/material";
+import axios from "axios";
 import { SyntheticEvent, useState } from "react";
+import Car from "../../../Modal/car";
 import "./SearchCar.css";
 
 function SearchCar(): JSX.Element {
@@ -9,8 +11,26 @@ function SearchCar(): JSX.Element {
         const value = (args.target as HTMLInputElement).value;
         //console.log(value);
         setNumber(value);
-        console.log(value);
+        //console.log(value);
     }
+
+    const getCarData_v1 = async ()=>{             
+        const result = await axios.get(myUrl+carNumber);
+        console.log(result.data.result.records);
+    }
+
+
+    const getCarData_v2 = ()=>{
+        axios.get<Car>(myUrl+carNumber)
+        .then(response=>{
+            
+            //myCars.map((item)=>item.tozeret_nm);
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+    }
+
     return (
         <div className="SearchCar">
 			<div className="Box">
@@ -21,7 +41,7 @@ function SearchCar(): JSX.Element {
                 InputLabelProps={{style:{color:"red"}}}
                 onChange={numberChange}
                 /><br/>
-                <Button color="primary">Search</Button>
+                <Button color="primary" onClick={getCarData_v2}>Search</Button>
             </div>
         </div>
     );
