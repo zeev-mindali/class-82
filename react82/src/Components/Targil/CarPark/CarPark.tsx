@@ -36,8 +36,8 @@ function CarPark(): JSX.Element {
         setCarOwner((args.target as HTMLInputElement).value);
     }
 
-    const changeOwnerPhone = (args:SyntheticEvent){
-        setCarOwner((args.target as HTMLInputElement).value);
+    const changeOwnerPhone = (args:SyntheticEvent)=>{
+        setOwnerPhone((args.target as HTMLInputElement).value);
     }
 
 
