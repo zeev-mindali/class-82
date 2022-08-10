@@ -1,6 +1,7 @@
 import MyData from "../../MyComponents/MyData/MyData";
 import NewLogin from "../../MyComponents/NewLogin/NewLogin";
 import SearchCar from "../../MyComponents/SearchCar/SearchCar";
+import CarPark from "../../Targil/CarPark/CarPark";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
@@ -11,7 +12,7 @@ function MainLayout(): JSX.Element {
         <div className="MainLayout">
 			<header><Header/></header>
             <aside><Menu/></aside>
-            <main><MyData/></main>
+            <main><CarPark/></main>
             <footer><Footer/></footer>
         </div>
     );
