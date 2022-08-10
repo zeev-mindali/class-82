@@ -33,7 +33,7 @@ function CarPark(): JSX.Element {
     }
 
     const changeCarFlat = (args:SyntheticEvent)=>{
-        setCarOwner((args.target as HTMLInputElement).value);
+        setCarFlat(Number((args.target as HTMLInputElement).value));
     }
 
     const changeOwnerPhone = (args:SyntheticEvent)=>{
@@ -41,7 +41,14 @@ function CarPark(): JSX.Element {
     }
 
 
-    const updateCar = ()=>{}
+    const updateCar = ()=>{
+            carList[parkNum-1].carOwner = carOwner;
+            carList[parkNum-1].ownerPhone = ownerPhone;
+            carList[parkNum-1].carNumber = carNum;
+            if (carList[parkNum-1].carFlat==0){
+                carList[parkNum-1].carFlat=carFlat;
+            }
+    }
     return (
         <div className="CarPark">
 			<h1>Car Parking system</h1><hr/>
