@@ -25,6 +25,21 @@ function CarPark(): JSX.Element {
     const changeParkNum = (args:SyntheticEvent)=>{
         setParkNum(Number((args.target as HTMLInputElement).value));
     }
+    const changeCarNum = (args:SyntheticEvent)=>{
+        setCarNum(Number((args.target as HTMLInputElement).value));
+    }
+    const changeCarOwner = (args:SyntheticEvent)=>{
+        setCarOwner((args.target as HTMLInputElement).value);
+    }
+
+    const changeCarFlat = (args:SyntheticEvent)=>{
+        setCarOwner((args.target as HTMLInputElement).value);
+    }
+
+    const changeOwnerPhone = (args:SyntheticEvent){
+        setCarOwner((args.target as HTMLInputElement).value);
+    }
+
 
     const updateCar = ()=>{}
     return (
@@ -32,10 +47,10 @@ function CarPark(): JSX.Element {
 			<h1>Car Parking system</h1><hr/>
             <div className="Box">
                 <input type="number" placeholder="parking number..." onChange={changeParkNum}/><br/><br/>
-                <input type="number" placeholder="car number..."/><br/><br/>
-                <input type="text" placeholder="car owner..."/><br/><br/>
-                <input type="number" placeholder="car flat..."/><br/><br/>
-                <input type="text" placeholder="owner number..."/><br/><br/><br/>
+                <input type="number" placeholder="car number..." onChange={changeCarNum}/><br/><br/>
+                <input type="text" placeholder="car owner..." onChange={changeCarOwner}/><br/><br/>
+                <input type="number" placeholder="car flat..." onChange={changeCarFlat}/><br/><br/>
+                <input type="text" placeholder="owner number..." onChange={changeOwnerPhone}/><br/><br/><br/>
                 <input type="button" value="update car" onClick={updateCar}/>
             </div><br/><br/>
             {carList.map(item=><CarParkItem key={item.parkNum} parkNum={item.parkNum} carNumber={item.carNumber} carOwner={item.carOwner} carFlat={item.carFlat} ownerPhone={item.ownerPhone}/>)}
