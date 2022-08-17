@@ -16,11 +16,13 @@ function Menu(): JSX.Element {
         );
     }
     */
+
+    /* test for snir */
     const mainMenu = ()=>{
         return(<>
             Main Menu<hr/>
             <NavLink to="/">Main Page</NavLink><br/>
-            <NavLink to="/searchCar">Search Car</NavLink> <br/>
+            {/*<NavLink to="/searchCar">Search Car</NavLink> <br/>*/}
             <NavLink to="/parking">Parking </NavLink><br/>
             <NavLink to="/login">Login</NavLink><br/>
             <NavLink to="/newlogin">Adv. Login</NavLink><br/>   

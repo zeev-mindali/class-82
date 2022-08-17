@@ -1,8 +1,18 @@
 import { Password, Person } from "@mui/icons-material";
 import { Button, ButtonGroup, Checkbox, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import "./NewLogin.css";
 
 function NewLogin(): JSX.Element {
+
+    const navigate = useNavigate();
+
+    const logUser = ()=>{
+
+        //login is ok...
+        navigate("/searchCar");
+    }
+
     return (
         <div className="NewLogin Box">
 			<Typography variant="h4" className="HeadLine">System Login</Typography><br/>
@@ -16,7 +26,7 @@ function NewLogin(): JSX.Element {
              InputLabelProps={{style:{color:"red"}}}/><br/><br/>
             <Checkbox/> Remmeber me?<br/><br/>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button color="primary">Login</Button>
+                <Button color="primary" onClick={logUser}>Login</Button>
                 <Button color="warning">Register</Button>
                 <Button color="secondary">Logout</Button>
             </ButtonGroup>
