@@ -17,7 +17,7 @@ function Menu(): JSX.Element {
     }
     */
 
-    /* test for snir */
+    /* test for snir and for brachi */
     const mainMenu = ()=>{
         return(<>
             Main Menu<hr/>
