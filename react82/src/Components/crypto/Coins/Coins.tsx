@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { coinAddAction, CoinData } from "../../../redux/CoinRedux";
 import { store } from "../../../redux/store";
+import SingleCoin from "../SingleCoin/SingleCoin";
 import "./Coins.css";
 
 function Coins(): JSX.Element {
-
+    const [render,setRender] = useState(false);
     useEffect(() =>{
         //check if we have coins
         if (store.getState().CoinState.coins.length > 0){
@@ -25,10 +26,11 @@ function Coins(): JSX.Element {
                     myData.image = item.image.thumb;
                     myData.rateILS = item.market_data.current_price.ils;
                     myData.rateUSD = item.market_data.current_price.usd;
-                    console.log(myData);
-                    store.dispatch(coinAddAction(JSON.stringify(myData)));   
-                                 
+                    //console.log(myData);
+                    store.dispatch(coinAddAction(JSON.stringify(myData)));                  
                 })
+                console.log("Total coins:"+store.getState().CoinState.coins.length);
+                setRender(true);
             })
             .catch(err=>console.log(err));
         }
@@ -37,7 +39,7 @@ function Coins(): JSX.Element {
     return (
         <div className="Coins">
 			<h1>Coins</h1><hr/>
-
+            {store.getState().CoinState.coins.map(item=><SingleCoin key={item.id} id={item.id} symbol={item.symbol} image={item.image} rateILS={item.rateILS} rateUSD={item.rateUSD}/>)}
         </div>
     );
 }
