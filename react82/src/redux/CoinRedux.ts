@@ -51,6 +51,7 @@ export function coinDeleteAction(coinId:string){
 //reducer (redux hook, will be called by redux only, not us)
 export function CoinReducer(currentState:CoinState = new CoinState,action:CoinAction):CoinState{
     const newState = {...currentState};
+    //for fix the redux bug...
     let coins = newState.coins.map(value => Object.assign({}, value));
     switch(action.type){
         case CoinActionType.CoinAdd:

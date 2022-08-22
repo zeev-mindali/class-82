@@ -29,6 +29,8 @@ function Coins(): JSX.Element {
                     //console.log(myData);
                     store.dispatch(coinAddAction(JSON.stringify(myData)));                  
                 })
+                //create our own coin
+                
                 console.log("Total coins:"+store.getState().CoinState.coins.length);
                 setRender(true);
             })

@@ -14,7 +14,5 @@ import {configureStore} from "@reduxjs/toolkit";
 
 //use this way....
 const reducers = combineReducers({CoinState:CoinReducer});
-
-
 export const store = configureStore({reducer:reducers});
 
