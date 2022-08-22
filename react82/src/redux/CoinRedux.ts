@@ -46,7 +46,7 @@ export function coinDeleteAction(coinId:string){
     return {type:CoinActionType.CoinDelete, payload:coinId}
 }
 
-
+//snir
 //Step V - our reducer function
 //reducer (redux hook, will be called by redux only, not us)
 export function CoinReducer(currentState:CoinState = new CoinState,action:CoinAction):CoinState{
