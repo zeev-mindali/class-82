@@ -26,6 +26,7 @@ function Menu(): JSX.Element {
             <NavLink to="/parking">Parking </NavLink><br/>
             <NavLink to="/login">Login</NavLink><br/>
             <NavLink to="/newlogin">Adv. Login</NavLink><br/>   
+            <NavLink to="/coins">Coins</NavLink><br/>
         </>
         );
     }

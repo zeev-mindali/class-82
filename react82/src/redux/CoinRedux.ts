@@ -1,5 +1,6 @@
 //id , symbol , image, rate(ils), rate(usd)
 
+//step I - which data we need (data structure)
 export class CoinData{
     id:string;
     symbol:string;
@@ -13,6 +14,7 @@ export class CoinState{
 }
 
 //actions : update, add, delete, download???
+//Step II - what is the methods that we should implement
 export enum CoinActionType{
     CoinUpdate = "CoinUpdate",
     CoinAdd = "CoinAdd",
@@ -21,12 +23,14 @@ export enum CoinActionType{
     CoinClear = "CoinClear",
 }
 
+//Step III - data structure of our redux state
 export interface CoinAction{
     type:CoinActionType;
     payload?:any;
 }
 
-export function coinAddAction(newCoin:CoinData):CoinAction{
+//Step IV - our functions
+export function coinAddAction(newCoin:String):CoinAction{
     return {type: CoinActionType.CoinAdd, payload:newCoin}
 }
 
@@ -43,13 +47,15 @@ export function coinDeleteAction(coinId:string){
 }
 
 
+//Step V - our reducer function
 //reducer (redux hook, will be called by redux only, not us)
-export function coinReducer(currentState:CoinState = new CoinState,action:CoinAction):CoinState{
+export function CoinReducer(currentState:CoinState = new CoinState,action:CoinAction):CoinState{
     const newState = {...currentState};
-
+    let coins = newState.coins.map(value => Object.assign({}, value));
     switch(action.type){
         case CoinActionType.CoinAdd:
-
+            coins.push(JSON.parse(action.payload));
+            newState.coins=coins;
             break;
 
         case CoinActionType.CoinDelete:

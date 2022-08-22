@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Coins from "../../crypto/Coins/Coins";
 import Main from "../../Layout/Main/Main";
 import Login from "../../MyComponents/Login/Login";
 import NewLogin from "../../MyComponents/NewLogin/NewLogin";
@@ -15,6 +16,7 @@ function WebRoute(): JSX.Element {
                 <Route path="/searchCar" element={<SearchCar/>}/>
                 <Route path="/parking" element={<CarPark/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/coins" element={<Coins/>}/>
                 <Route path="*" element={<Page404/>}/>
            </Routes>
         </div>
