@@ -51,7 +51,8 @@ abstract class Account implements AccountAble {
     return true;
   }
 
-  public yabadabadu(): string {
+  //override toString
+  public toString() {
     return `
      account number: ${this.accountNumber}
      owner id: ${this.ownerId} 
@@ -79,7 +80,7 @@ class Regular extends Account {
     console.log("you can't get a loan");
   }
 }
-class bussniess extends Account {
+class Bussniess extends Account {
   private bussniessType: string;
 
   constructor(ownerId: string, bussniessType: string) {
@@ -90,16 +91,37 @@ class bussniess extends Account {
   public getLoan(amount: number): void {
     this.loan += amount;
   }
+
+  //override method
+  public toString(): string {
+    let myInfo = super.toString();
+    myInfo += `
+    account type ${this.bussniessType}
+    `;
+    return myInfo;
+  }
 }
-class student extends Account {
+class Student extends Account {
   constructor(ownerId: string) {
     super(ownerId, 0);
   }
   public getLoan(amount: number): void {
     console.log("you can't get a loan");
   }
+
+  public toString(): string {
+    return `the owner isssssss : ${this.ownerId}`;
+  }
 }
 
 let account1: Regular = new Regular("zeev");
 
 //let amit: Account = new Account("satlan", 5); => account is abstract....
+let noa: Bussniess = new Bussniess("noa", "developer");
+noa.deposit(1000000);
+console.log(Account.getBankProfit());
+console.log(noa.toString());
+
+let matan: Student = new Student("Matan");
+
+console.log(matan.toString());
