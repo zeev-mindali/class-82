@@ -17,6 +17,6 @@ app.get("/", (req,res)=>{
     //res.status(500).json({err:"500", message:"oops i did it again",owner:"matan"});
     //res.download('server.js');
 
-    res.render('index');
+    res.render('index',{name:"Zeev Mindali",noiseMaker:"Or Jiny"});
 
 });
