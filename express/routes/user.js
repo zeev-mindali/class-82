@@ -1,3 +1,4 @@
+const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 
@@ -16,8 +17,21 @@ router.get("/list", (req, res) => {
 // /users/search/2
 // /users/search/1024
 
-router.post("/search/:id", (req, res) => {
+router.post("/addNew", (req, res) => {
   res.send(`get user with id ${req.params.id}`);
+  console.log(req.body.name, req.body.age); //name, age
+});
+
+router.post("/login", (req, res) => {
+  //res.send(`user: ${req.body.user}  password:${req.body.password}`);
+  const user = req.body.user;
+  const password = req.body.password;
+  if (user === "zeev" && password === "12345") {
+    res.send("OK, you can login");
+  } else {
+    res.send("Who the F*** are you?");
+  }
+  console.log(`user: ${req.body.user}  password:${req.body.password}`);
 });
 
 // router.get("/search/:id",(req,res)=>{

@@ -3,6 +3,11 @@ const { request } = require("express");
 const express = require("express");
 const app = express();
 
+//for working with post requests
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
+
 //on which port we will listen
 app.listen(3000);
 
