@@ -18,5 +18,20 @@ app.get("/", (req,res)=>{
     //res.download('server.js');
 
     res.render('index',{name:"Zeev Mindali",noiseMaker:"Or Jiny"});
-
 });
+
+
+//user list , user new from
+//  get          post
+//  read         create
+
+// app.get ("/users",(req,res)=>{
+//     res.send("User List");
+// });
+
+// app.get("/users/new",(req,res)=>{
+//     res.send("Create new user..")
+// });
+
+const userRouter = require("./routes/user");
+app.use("/users",userRouter);
