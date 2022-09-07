@@ -1,7 +1,7 @@
 npm init -y =>package json איתחול קובץ התחלתי של 
 npm i express => express התקנת החבילה של
 npm i --save-dev nodemon => מאפשר צפייה בזמן אמת בשינויים בשרת לאחר שמירה
-
+npm i cors => טיפול בבעיות CORS
 server.js שעל מנת להפעיל את השרת עם הקובץ הראשי שלו 
 "scripts": {
     "dev" : "nodemon server.js"

@@ -2,8 +2,10 @@
 const { request } = require("express");
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 //for working with post requests
+app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
