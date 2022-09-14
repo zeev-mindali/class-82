@@ -49,3 +49,5 @@ const deleteBook = async (bookId: number): Promise<void> => {
   const sql = `DELETE FROM books where bookId=${bookId}`;
   const result: OkPacket = await dal.execute(sql);
 };
+
+export default { getAllGenres, getAllBooks, addBook, deleteBook };
