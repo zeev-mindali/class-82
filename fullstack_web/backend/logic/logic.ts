@@ -9,13 +9,43 @@ import GenreModel from "../model/genre-model";
 //CRUD -> Create Read Update Delete....
 
 //Read
-const getAllGenres = async () => {};
+const getAllGenres = async (): Promise<GenreModel[]> => {
+  const sql = "SELECT * FROM genres";
+  const genres = await dal.execute(sql);
+  return genres;
+};
 
 //Read
-const getAllBooks = async () => {};
+const getAllBooks = async (): Promise<BookModel[]> => {
+  const sql = `
+        SELECT books.*, genreName
+        FROM books JOIN genres
+        ON books.genreId = genres.genreId
+    `;
+  const books = await dal.execute(sql);
+  return books;
+};
 
 //Create
-const addBook = async () => {};
+const addBook = async (book: BookModel): Promise<BookModel> => {
+  const sql = `
+    INSERT INTO books VALUES(
+        DEFAULT,
+        '${book.bookName}',
+        '${book.summary}',
+        ${book.genereId},
+        ${book.price},
+        ${book.stock}
+    )
+  `;
+
+  const result: OkPacket = await dal.execute(sql);
+  book.bookId = result.insertId;
+  return book;
+};
 
 //Delete
-const deleteBook = async () => {};
+const deleteBook = async (bookId: number): Promise<void> => {
+  const sql = `DELETE FROM books where bookId=${bookId}`;
+  const result: OkPacket = await dal.execute(sql);
+};

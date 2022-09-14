@@ -1,5 +1,0 @@
-npm init -y  -> init package.json
-npm i --save-dev nodemon => מאפשר צפייה בזמן אמת בשינויים בשרת לאחר שמירה
-"scripts": {
-    "server" : "nodemon --exec ts-node server.ts"
-  },
