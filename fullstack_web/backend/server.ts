@@ -1,15 +1,18 @@
-import {
-  ClientError,
-  IdNotFoundError,
-  RouteNotFoundError,
-  ValidationError,
-} from "./model/client-errors";
+import express from "express";
+import cors from "cors";
+import config from "./utils/config";
+import catchAll from "./middleware/catch-all";
+import routeNotFound from "./middleware/route-not-found";
+import controller from "./routes/controller";
 
-let err1 = new RouteNotFoundError("/eden");
-let err2 = new ValidationError("Jiny is here , uffffff");
+const server = express();
 
-//err1.showError();
-//err2.showError();
+server.use(cors());
+server.use(express.json());
+server.use("/", controller);
+server.use("*", routeNotFound);
+server.use(catchAll);
 
-let err3 = new IdNotFoundError(128);
-err3.showError();
+server.listen(config.port, () =>
+  console.log("Listening on http://localhost:" + config.port)
+);

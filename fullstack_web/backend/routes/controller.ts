@@ -18,6 +18,17 @@ router.get(
 );
 
 // GET http://localhost:3001/api/books
+router.get(
+  "/api/books",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      const books = await logic.getAllBooks(); //will create array of objects
+      response.json(books);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+);
 
 // POST http://localhost:3001/api/books
 router.post(
@@ -34,3 +45,5 @@ router.post(
 );
 
 // DELETE http://localhost:3001/api/books/:bookId
+
+export default router;
