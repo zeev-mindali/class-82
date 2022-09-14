@@ -26,3 +26,6 @@ function execute(sql: string): Promise<any> {
       resolve(result);
     });
   });
+}
+
+export default { execute };

@@ -16,6 +16,13 @@ npm i mysql => for connecting to sql server
     "server": "nodemon --exec ts-node server.ts"
 },
 
+extend types to be used in our projects
+
+npm i @types/express
+npm i @types/joi
+npm i @types/mysql
+npm i @types/node
+
 
 check server is running by the command line:
 npm run server
