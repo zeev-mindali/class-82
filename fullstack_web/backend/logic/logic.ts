@@ -30,7 +30,7 @@ const getAllBooks = async (): Promise<BookModel[]> => {
 const addBook = async (book: BookModel): Promise<BookModel> => {
   const sql = `
     INSERT INTO books VALUES(
-        DEFAULT,
+        null,
         '${book.bookName}',
         '${book.summary}',
         ${book.genereId},
