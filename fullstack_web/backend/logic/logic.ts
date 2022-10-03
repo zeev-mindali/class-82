@@ -34,7 +34,7 @@ async function addBook(book: BookModel): Promise<BookModel> {
             DEFAULT,
             '${book.bookName}',
             '${book.summary}',
-            ${book.genereId},
+            ${book.genreId},
             ${book.price},
             ${book.stock}
         )`;

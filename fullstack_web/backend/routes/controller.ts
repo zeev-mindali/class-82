@@ -55,7 +55,7 @@ router.delete(
     try {
       const bookId = +request.params.bookId;
       await logic.deleteBook(bookId);
-      response.status(204);
+      response.status(204).json("{msg:'done'}");
     } catch (err: any) {
       next(err);
     }

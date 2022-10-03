@@ -2,7 +2,7 @@ class BookModel {
   public bookId: number;
   public bookName: string;
   public summary: string;
-  public genereId: number;
+  public genreId: number;
   public price: number;
   public stock: number;
 
@@ -10,7 +10,7 @@ class BookModel {
     this.bookId = book.bookId;
     this.bookName = book.bookName;
     this.summary = book.summary;
-    this.genereId = book.genereId;
+    this.genreId = book.genreId;
     this.price = book.price;
     this.stock = book.stock;
   }
