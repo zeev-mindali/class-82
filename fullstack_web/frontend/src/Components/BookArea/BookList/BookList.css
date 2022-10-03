@@ -1,0 +1,20 @@
+.BookList>table {
+	margin :50px auto;
+}
+
+.BookList table, .BookList th, .BookList td{
+    border:1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.BookList tr:nth-child(even){
+    background-color: lightblue;
+}
+.BookList tr:nth-child(odd){
+    background-color: lightgreen;
+}
+
+.BookList thead tr:first-child{
+    background-color: gray;
+}
