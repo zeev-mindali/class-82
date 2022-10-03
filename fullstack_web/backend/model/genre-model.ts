@@ -1,6 +1,6 @@
-class GenereModel {
+class GenreModel {
   public genreId: number;
   public genereName: string;
 }
 
-export default GenereModel;
+export default GenreModel;
