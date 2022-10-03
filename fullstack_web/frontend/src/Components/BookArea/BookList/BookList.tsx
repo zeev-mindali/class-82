@@ -24,6 +24,12 @@ function BookList(): JSX.Element {
         alert ("Book deleted successfully");
     }
 
+    const rebook = (bookId:number)=>{
+        deleteBook(bookId);
+        const newList = {...books}.filter(item=>item.bookId != bookId);
+        setBooks(newList);
+    }
+
     return (
         <div className="BookList">
 			<table>
@@ -46,7 +52,7 @@ function BookList(): JSX.Element {
                             <td>{singleBook.price}</td>
                             <td>{singleBook.stock}</td>
                             <td>
-                                <button onClick={()=>{deleteBook(singleBook.bookId)}}>X</button>
+                                <button onClick={()=>{rebook(singleBook.bookId)}}>X</button>
                             </td>
                         </tr>
                     )}
