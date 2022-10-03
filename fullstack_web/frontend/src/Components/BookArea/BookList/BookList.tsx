@@ -4,15 +4,19 @@ import bookService from "../../../Util/BookService";
 import "./BookList.css";
 
 function BookList(): JSX.Element {
+
     const [books,setBooks] = useState<BookModel[]>([]); 
     //let myBooks:BookModel[] = [];
 
+    
     useEffect(() =>{
         bookService.getAllBooks()
         .then(books=>setBooks(books))
+        .then(()=>console.log(books))
         .catch(err=>alert(err.message));
     },[]);
 
+    
     // const deleteBook = async (bookId:number)=>{
     //     await bookService.deleteBook(bookId);
     //     alert ("Book deleted successfully");
@@ -35,12 +39,12 @@ function BookList(): JSX.Element {
 			<table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Summary</th>
-                        <th>Genre</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Delete</th>
+                        <th>שם הספר</th>
+                        <th>תאור קצר</th>
+                        <th>זאנר</th>
+                        <th>מחיר</th>
+                        <th>כמות</th>
+                        <th>מחיקה</th>
                     </tr>
                 </thead>
                 <tbody>
