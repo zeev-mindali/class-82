@@ -48,7 +48,20 @@ async function deleteDonation(donationId:number):Promise<void>{
 
 //update donation
 async function updateDonation(donation:Donation):Promise<void>{
-
+  const donationId = donation.id;
+  const sql = `UPDATE donation 
+  SET 
+   name = '${donation.name}',
+   family = '${donation.family}', 
+   tel = '${donation.tel}', 
+   sum = ${donation.sum}, 
+   auth_code = '${donation.auth_code}', 
+   cancel_code = '${donation.cancel_code}', 
+   payment_code = ${donation.payment_code}, 
+   memo = '${donation.memo}' 
+  WHERE (id = ${donationId});
+  `;
+  const result:OkPacket = await dal.execute(sql);
 }
 //cancel donation - update
 async function cancelDonation(cancelCode:string,donationId:number):Promise<void>{
@@ -63,3 +76,9 @@ export default {
   updateDonation,
   cancelDonation,
 };
+
+
+//crud -> Create Read Update Delete
+//Create - create a new donation
+//Read -> get donation information
+//Update -> update donation information
