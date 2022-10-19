@@ -24,6 +24,11 @@ class DonationService{
     public async addDonation(donation:DonationModel):Promise<void>{
         const response = await axios.post<DonationModel>(appUrl.newDonation,donation);
     }
+
+    public async singleDonation(id:number):Promise<DonationModel>{
+        const response = await axios.get<DonationModel[]>(appUrl.singleDonation+id);
+        return response.data[0];
+    }
 }
 
 const donationService = new DonationService();

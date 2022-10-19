@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DonationModel from "../../../model/DonationModel";
 import donationService from "../../../Util/DonationService";
 import "./DonationList.css";
@@ -6,7 +7,7 @@ import "./DonationList.css";
 function DonationList(): JSX.Element {
     //let donation:DonationModel[] = [];
     const [donation,setData] = useState<DonationModel[]>([]);
-
+    const navigate = useNavigate();
     useEffect(()=>{
         donationService.getAllDonations()
         .then(response =>{setData(response)})
@@ -46,10 +47,15 @@ function DonationList(): JSX.Element {
                                 <td>{item.auth_code}</td>
                                 <td>{item.cancel_code}</td>
                                 <td>
-                                    <button>✍🏻</button>
+                                    <button onClick={()=>{
+                                        navigate("/donation/new/"+item.id);
+                                    }}>✍🏻</button>
                                 </td>
                                 <td>
-                                    <button onClick={()=>{donationService.deleteDonation(item.id)}}>❌</button>
+                                    <button onClick={()=>{
+                                        donationService.deleteDonation(item.id);
+                                        setData(donation.filter(singleItem=>item.id != singleItem.id));
+                                        }}>❌</button>
                                 </td>
                             </tr>
                             

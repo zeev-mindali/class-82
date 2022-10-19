@@ -7,6 +7,7 @@ class Config{
     public cancelDonation = this.baseURL+"/api/cancel/:cancelCode/";
     public updateDonation = this.baseURL+"/api/update";
     public deleteDonation = this.baseURL+"/api/delete/";
+    public singleDonation = this.baseURL+"/api/single/";
 }
 
 const appUrl = new Config();

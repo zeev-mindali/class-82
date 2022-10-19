@@ -11,7 +11,8 @@ function Routing(): JSX.Element {
 			<Routes>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/donations/list" element={<DonationList/>}/>
-                <Route path="/donation/new" element={<DonationNew/>}/>
+                <Route path="/donation/new/:id" element={<DonationNew/>}/>
+                
                 <Route path="/about" element={<About/>}/>
                 <Route path="/" element={<Home/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
