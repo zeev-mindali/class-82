@@ -1,4 +1,4 @@
-class Products {
+export class Products {
   public id: number | undefined;
   public product_name: string | undefined;
   public price: number | undefined;
@@ -7,5 +7,3 @@ class Products {
   public units: number | undefined;
   public last_update: Date | undefined;
 }
-
-export default Products;

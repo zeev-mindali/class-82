@@ -1,6 +1,6 @@
 class Manufactors {
   public id: number | undefined;
-  public name: string | undefined;
+  public manufactor_name: string | undefined;
 }
 
 export default Manufactors;

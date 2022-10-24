@@ -1,0 +1,22 @@
+.ListAll {
+	
+}
+.ListAll>table{
+    margin: 50px auto;
+}
+.ListAll table, .ListAll th, .ListAll td{
+    border:1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.ListAll tr:nth-child(even){
+    background-color: lightblue;
+}
+.ListAll tr:nth-child(odd){
+    background-color: lightgreen;
+}
+
+.ListAll thead tr:first-child{
+    background-color: gray;
+}

@@ -17,6 +17,19 @@ router.get(
   }
 );
 
+router.get(
+  "/api/single/:id",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      const id = +request.params.id;
+      const singleProduct = await logic.singleItem(id);
+      response.status(200).json(singleProduct);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+);
+
 router.post(
   "/api/products/:id/:units",
   async (request: Request, response: Response, next: NextFunction) => {
@@ -24,7 +37,7 @@ router.post(
       const id = +request.params.id;
       const units = +request.params.units;
       logic.updateStock(id, units);
-      response.status(201);
+      response.status(202).json("{status:'ok'}");
     } catch (err: any) {
       next(err);
     }
