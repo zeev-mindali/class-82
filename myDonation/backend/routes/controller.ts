@@ -32,6 +32,16 @@ router.get("/api/donations", async (request:Request,response:Response, next:Next
   }
 });
 
+router.get("/api/single/:donationId",async (request:Request,response:Response, next:NextFunction) => {
+  try{
+    const donationId = +request.params.donationId;
+    const singleDonation = await logic.getSingleDonation(donationId);
+    response.json(singleDonation);
+  }catch (err:any){
+    next(err);
+  }
+});
+
 //make donation 18        -Post
 //make donation 36
 //make donation 180

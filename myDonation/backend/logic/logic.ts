@@ -22,6 +22,13 @@ async function getAllDonations():Promise<Donation[]>{
   return donation;
 }
 
+async function getSingleDonation(id:number):Promise<Donation>{
+  const sql = `SELECT * FROM donation WHERE donation.id = ${id}`;
+  const singleDonation = await dal.execute(sql);
+  return singleDonation;
+  
+}
+
 //add new donation
 async function addDonation(donation:Donation):Promise<Donation>{
   const sql = `INSERT INTO donation Values(
@@ -75,6 +82,7 @@ export default {
   deleteDonation,
   updateDonation,
   cancelDonation,
+  getSingleDonation,
 };
 
 
