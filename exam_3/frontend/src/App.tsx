@@ -7,7 +7,7 @@ import Routing from "./Components/Routing/Routing";
 function App() {
   return (
     <div className="App">
-      <Menu />
+      <h1>Class 82 - The best that lecturer can get</h1>
       <hr />
       <Routing />
     </div>

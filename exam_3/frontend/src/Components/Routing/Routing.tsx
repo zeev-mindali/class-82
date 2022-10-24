@@ -8,8 +8,8 @@ function Routing(): JSX.Element {
     <div className="Routing">
       <Routes>
         <Route path="/api/all" element={<ListAll />} />
-        <Route path="/api/units" element={<UpdateQty />} />
-        <Route path="/api/single/:id" element={<SingleProduct/>}/>
+        <Route path="/api/units/:id" element={<UpdateQty />} />
+        <Route path="/api/single/:id" element={<SingleProduct />} />
         <Route path="*" element={<ListAll />} />
       </Routes>
     </div>

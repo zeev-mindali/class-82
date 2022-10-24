@@ -48,6 +48,7 @@ function ListAll(): JSX.Element {
                 <button
                   onClick={() => {
                     //navigate("/donation/new/" + item.id);
+                    navigate("/api/units/" + item.id);
                   }}
                 >
                   ✍🏻
