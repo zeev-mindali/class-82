@@ -3,10 +3,8 @@ class Config {
   public mysqlHost = "localhost";
   public mysqlUser = "root";
   public mysqlPassword = "12345678";
-  public mysqlDatabase = "myDonation";
+  public mysqlDatabase = "exam";
 }
-
 
 const config = new Config();
 export default config;
-
