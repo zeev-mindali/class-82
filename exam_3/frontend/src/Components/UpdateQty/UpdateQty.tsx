@@ -14,6 +14,7 @@ function UpdateQty(): JSX.Element {
   const qtyChange = (args: SyntheticEvent) => {
     const qty = (args.target as HTMLInputElement).value;
     setQty(+qty);
+    product!.units = +qty;
   };
 
   useEffect(() => {
@@ -38,8 +39,8 @@ function UpdateQty(): JSX.Element {
         <label>price</label>
         <input type="text" value={product?.price} disabled />
 
-        <label>units</label>
-        <input type="number" onChange={qtyChange} />
+        <label>units ({product?.units})</label>
+        <input type="number" value={product?.units} onChange={qtyChange} />
 
         <label>manufactor</label>
         <input type="text" value={product?.manufactor_name} disabled />
