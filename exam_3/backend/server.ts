@@ -4,6 +4,7 @@ import config from "./utils/config";
 import catchAll from "./middleware/catch-all";
 import routeNotFound from "./middleware/route-not-found";
 import controller from "./routes/controller";
+import logic from "./logic/logic";
 
 //create the server
 const server = express();
@@ -17,6 +18,11 @@ server.use("/", controller);
 server.use("*", routeNotFound);
 //if we have an error that we didn't handle, last safty net
 server.use(catchAll);
+
+const runDB = async () => {
+  await logic.createData();
+};
+runDB();
 
 //run the server by the config that we created
 server.listen(config.port, () =>

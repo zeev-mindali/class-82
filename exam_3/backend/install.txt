@@ -33,3 +33,36 @@ in workbench run this two commands:
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678';
 flush privileges;
+
+
+
+docker
+=======
+create network
+------------------------------------------------
+docker network create mysql-exam
+
+
+create mysql inside the network
+------------------------------------------------
+docker container run --name mysql-exam --network 
+exam_network -e MYSQL_ROOT_PASSWORD=12345678 -e MYSQL_DATABASE=exam -d mysql:latest
+
+
+
+frontend
+==================
+const value = "kiryat yam";
+axios.get<branch>(`192.168.5.1:5400/api/city/branch/${value}`)'
+.then(response=>{
+    response.data.map(item=><branchDetails branch=item/>);
+});
+
+
+backend
+=====================
+route.get("/api/city/branch/:branch", async (res,req)=>{
+    
+    const sql = `SELECT * FROM branches WHERE brnach='${req.params.branch}' `;
+    return await dal.execute(sql);
+});

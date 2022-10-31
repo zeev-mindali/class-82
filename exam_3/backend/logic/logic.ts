@@ -3,6 +3,7 @@ import { OkPacket } from "mysql";
 import dal_mysql from "../utils/dal_mysql";
 import Manufactors from "../model/manufactors";
 import Products from "../model/products";
+import config from "../utils/config";
 //read
 async function getAllProducts(): Promise<Products[]> {
   const sql = `SELECT products.* , manufactors.manufactor_name
@@ -28,8 +29,13 @@ const updateStock = async (product_id: number, qty: number): Promise<void> => {
   const result: OkPacket = await dal.execute(sql);
 };
 
+const createData = async () => {
+  const result: OkPacket = await dal.execute(config.db_init);
+};
+
 export default {
   getAllProducts,
   updateStock,
   singleItem,
+  createData,
 };
