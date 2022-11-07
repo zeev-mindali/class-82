@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, response, Response } from "express";
 import logic from "../logic/logic";
-import Donation from "../model/donation"
-import Payment from "../model/payment"
+import Donation from "../model/donation";
+import Payment from "../model/payment";
 
 const router = express.Router();
 
@@ -10,37 +10,45 @@ const router = express.Router();
 //on my computer -> localhost
 //url -> http://localhost:3001/api/payments (GET)
 //get all payments - Verb(Get)
-router.get("/api/payments", async (request:Request,response:Response, next:NextFunction) => {
-  try{
+router.get(
+  "/api/payments",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
       const payments = await logic.getAllPayments();
       console.log(payments);
       response.status(200).json(payments);
-      
-  } catch (err:any){
-    next(err);
+    } catch (err: any) {
+      next(err);
+    }
   }
-});
+);
 
 //get all donations - get
-router.get("/api/donations", async (request:Request,response:Response, next:NextFunction) => {
-  try{
-        const donations = await logic.getAllDonations();
-        console.log(donations);
-        response.json(donations);
-     } catch(err:any){
-    next(err);
+router.get(
+  "/api/donations",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      const donations = await logic.getAllDonations();
+      console.log(donations);
+      response.json(donations);
+    } catch (err: any) {
+      next(err);
+    }
   }
-});
+);
 
-router.get("/api/single/:donationId",async (request:Request,response:Response, next:NextFunction) => {
-  try{
-    const donationId = +request.params.donationId;
-    const singleDonation = await logic.getSingleDonation(donationId);
-    response.json(singleDonation);
-  }catch (err:any){
-    next(err);
+router.get(
+  "/api/single/:donationId",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      const donationId = +request.params.donationId;
+      const singleDonation = await logic.getSingleDonation(donationId);
+      response.json(singleDonation);
+    } catch (err: any) {
+      next(err);
+    }
   }
-});
+);
 
 //make donation 18        -Post
 //make donation 36
@@ -50,40 +58,63 @@ router.get("/api/single/:donationId",async (request:Request,response:Response, n
 //make donation 3600
 //make donation custom
 
-router.post("/api/new_donation", async (request:Request, response:Response, next:NextFunction) => {
-  try{
-    let donation = new Donation(request.body);
-    //donation.sum=18;
-    const newDonation = await logic.addDonation(donation);
-    response.status(201).json(newDonation);
-
-  } catch (err:any){
-    next(err);
+router.post(
+  "/api/new_donation",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      let donation = new Donation(request.body);
+      //donation.sum=18;
+      const newDonation = await logic.addDonation(donation);
+      response.status(201).json(newDonation);
+    } catch (err: any) {
+      next(err);
+    }
   }
-});
+);
 
 //cancel donation        -update
-router.put("/api/cancel/:cancelCode/:donationId",  async (request:Request, response:Response, next:NextFunction) => {
+router.put(
+  "/api/cancel/:cancelCode/:donationId",
+  async (request: Request, response: Response, next: NextFunction) => {
     const cancelCode = request.params.cancelCode;
     const donationId = +request.params.donationId;
-    await logic.cancelDonation(cancelCode,donationId);
+    await logic.cancelDonation(cancelCode, donationId);
     response.status(202).json("{msg:'donation canceled'}");
-});
-//update donation        -update
-router.put("/api/update", async (request:Request, response:Response, next:NextFunction)=>{
-  const donation = request.body;
-  await logic.updateDonation(donation);
-  response.status(202).json("{msg:'donation updated'}");
-});
-//delete donation        -delete
-router.delete("/api/delete/:donationId", async(request:Request, response:Response, next:NextFunction) =>{
-  try{
-    const donationId = +request.params.donationId;
-    await logic.deleteDonation(donationId);
-    response.status(202).json("{msg:'done'}");
-  }catch (err:any){
-    next(err);
   }
-});
+);
+//update donation        -update
+router.put(
+  "/api/update",
+  async (request: Request, response: Response, next: NextFunction) => {
+    const donation = request.body;
+    await logic.updateDonation(donation);
+    response.status(202).json("{msg:'donation updated'}");
+  }
+);
+//delete donation        -delete
+router.delete(
+  "/api/delete/:donationId",
+  async (request: Request, response: Response, next: NextFunction) => {
+    try {
+      const donationId = +request.params.donationId;
+      await logic.deleteDonation(donationId);
+      response.status(202).json("{msg:'done'}");
+    } catch (err: any) {
+      next(err);
+    }
+  }
+);
+
+router.post(
+  "/api/login",
+  async (request: Request, response: Response, next: NextFunction) => {
+    const userCred = request.body;
+    if (await logic.checkLogin(userCred)) {
+      response.status(200).json(`{"status":200,"msg":"ok"}`);
+    } else {
+      response.status(401).json(`{"status":401,"msg":"unauthorized"}`);
+    }
+  }
+);
 
 export default router;

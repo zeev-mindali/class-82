@@ -3,6 +3,7 @@ import Payment from "../model/payment";
 import dal from "../utils/dal_mysql";
 import { OkPacket } from "mysql";
 import dal_mysql from "../utils/dal_mysql";
+import { userCred } from "../model/userCred";
 
 //get all payment  
 async function getAllPayments():Promise<Payment[]>{
@@ -75,6 +76,12 @@ async function cancelDonation(cancelCode:string,donationId:number):Promise<void>
   const sql = `UPDATE donation SET cancel_code = '${cancelCode}' WHERE (id = ${donationId})`;
   const result:OkPacket = await dal.execute(sql);
 }
+
+const checkLogin = async (userCred:userCred):Promise<boolean> => {
+  const sql =`SELECT count(*) as isValid FROM users WHERE userName='${userCred.userName}' AND userPass='${userCred.userPass}'`
+  return await dal.execute(sql)===1;
+
+}
 export default {
   getAllPayments,
   getAllDonations,
@@ -83,6 +90,7 @@ export default {
   updateDonation,
   cancelDonation,
   getSingleDonation,
+  checkLogin,
 };
 
 
