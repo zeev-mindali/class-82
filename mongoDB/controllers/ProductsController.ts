@@ -12,3 +12,5 @@ router.get("/products", async (request:Request, response:Response, next:NextFunc
         next(err);
     }
 });
+
+export default router;

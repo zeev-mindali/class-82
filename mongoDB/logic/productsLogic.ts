@@ -83,7 +83,7 @@ const getPartialProducts= ():Promise<IProductModel[]>=>{
               filter !!!!!
 
     SQL     : INNER JOIN - get all products with category for each, dont get products without category 
-    MongoDB : return ProductModel.find({categoryId: {$ne null}}).populate("category").exec()
+    MongoDB : return ProductModel.find({categoryId: {$ne:null}}).populate("category").exec()
 
 */
 
