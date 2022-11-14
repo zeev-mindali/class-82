@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName"/>
+        <br/><br/>
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+        <br/><br/>
+        <input type="submit" value="OK"/>
+    
+        <?php //check if page is post back:
+            if (isset($_POST["fullName"])){
+
+                //take parameters:
+                $fullName = $_POST["fullName"];
+                $message = $_POST["message"];
+
+                //save them to text file
+                $data2save = "Full Name: $fullName\nMessage: $message\n";
+                file_put_contents("Details.txt", $data2save, FILE_APPEND);
+
+                //redirect to a "thank you page":
+                header("Location: ThankYou.html");
+            }
+        ?>
+    </form>
+    
+</body>
+</html>
