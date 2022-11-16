@@ -42,7 +42,11 @@
                     $json = json_decode($body);
 
                     //print out the array
-                    print_r($json);
+                    print_r($json); //[json]
+
+                    foreach ($json as $item){
+                        echo "$item<br/>";
+                    }
 
                     //have fun with the results.....
             }
