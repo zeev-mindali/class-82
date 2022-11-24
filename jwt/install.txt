@@ -1,0 +1,5 @@
+npm i jsonwebtoken
+
+npm i @types/jsonwebtoken
+
+JsonWebToken => JWT
